@@ -1,38 +1,40 @@
+
 import re
 
-# 1️⃣ Usuwanie wszystkich „śmieci” (tylko litery i cyfry zostają)
-#    r'[^a-z0-9]' => ^ w nawiasach [] neguje, czyli wszystko poza a-z i 0-9
+# 1️⃣ Czyszczenie tekstu (litery + cyfry tylko)
 tekst = "A man, a plan, a canal: Panama!"
-tekst_czysty = re.sub(r'[^a-z0-9]', '', tekst.lower())
+czysty = re.sub(r'[^a-z0-9]', '', tekst.lower())
 # wynik: "amanaplanacanalpanama"
-# użycie: czyszczenie tekstu, palindromy, preprocessing danych
+# użycie: palindromy, preprocessing danych
 
-# 2️⃣ Usuwanie lub normalizacja spacji
-#    r'\s+' => jeden lub więcej białych znaków (spacja, tab, nowa linia)
+# 2️⃣ Normalizacja spacji (jedna spacja zamiast wielu)
 tekst = "ala    ma   kota"
 tekst_norm = re.sub(r'\s+', ' ', tekst)
 # wynik: "ala ma kota"
-# użycie: normalizacja tekstu, czytelne formatowanie, CSV/TSV itp.
+# użycie: czysty tekst, formatowanie
 
 # 3️⃣ Wyciąganie liczb z tekstu
-#    r'\d+' => jedna lub więcej cyfr
 tekst = "mam 2 koty i 15 psów"
 liczby = re.findall(r'\d+', tekst)
-# wynik: ['2', '15']
+# wynik: ['2','15']
 # użycie: parsowanie danych, ekstrakcja liczb
 
-# 4️⃣ Alternatywnie, szybkie usuwanie wszystkiego co nie jest literą/cyfrą/_:
-#    r'\W+' => \W = wszystko co NIE jest [a-zA-Z0-9_], '+' = jeden lub więcej
+# 4️⃣ Szybkie czyszczenie wszystkiego co nie jest literą/cyfrą/_
 tekst = "Hello, World!_2023"
-tekst_czysty2 = re.sub(r'\W+', '', tekst)
+czysty2 = re.sub(r'\W+', '', tekst)
 # wynik: "HelloWorld_2023"
-# użycie: czyszczenie identyfikatorów, nazw plików, user input
+# użycie: identyfikatory, nazwy plików, input od użytkownika
 
-# 🔹 Funkcje przydatne w re:
-# re.sub(pattern, replace_with, tekst) -> zamienia wszystko pasujące do pattern
-# re.findall(pattern, tekst) -> zwraca listę wszystkich dopasowań
-# re.match(pattern, tekst) -> sprawdza dopasowanie na początku tekstu
-# re.search(pattern, tekst) -> szuka dopasowania w całym tekście
+# 🔹 Metody przydatne:
+# re.sub(pattern, replace_with, tekst) -> zamienia wszystko pasujące
+# re.findall(pattern, tekst) -> lista dopasowań
+# re.match(pattern, tekst) -> dopasowanie na początku
+# re.search(pattern, tekst) -> dopasowanie w całym tekście
+
+# 🔹 Tipy praktyczne:
+# - zawsze używaj r'' (raw string) przy regexach
+# - lowercase + regex = ignorowanie wielkości liter
+# - chainowanie metod string + regex = super czytelne
 
 
 tylko litery i cyfry (lepsza wersja)
