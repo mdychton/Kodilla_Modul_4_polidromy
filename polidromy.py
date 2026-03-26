@@ -11,3 +11,17 @@ print(if_polidrome("kajak"))                # True
 print(if_polidrome("potop"))                # True
 print(if_polidrome("Python"))               # False
 print(if_polidrome("Kobyła ma mały bok"))   # True to ciekawe :)
+
+
+
+
+"""
+slicing:
+
+🔹 Podsumowanie
+[::] → cała sekwencja (start i stop domyślne)
+[::1] → normalnie od początku do końca
+[::2] → co drugi znak
+[:: -1] → odwraca kolejność
+
+"""
