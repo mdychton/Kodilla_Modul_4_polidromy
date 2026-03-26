@@ -1,4 +1,9 @@
 def if_polidrome(text):
+
+    """Function is checking if the given text is a polidrome. It ignores spaces and lower cases.
+    :param text: string
+    :return: boolean"""
+
     text = text.lower().replace(" ", "")
     return text == text[::-1]
 
